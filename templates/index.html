@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+        <table class="table table-striped">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+            {% for row in rows %}
+                <tr>
+                    <td> {{ row['symbol'] }} </td>
+                    <td> {{ row['name'] }} </td>
+                    <td> {{ row['shares'] }} </td>
+                    <td> ${{ row['price'] }} </td>
+                    <td> ${{ row['money'] }} </td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td>CASH</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{ usermoney }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{ totalmoney }}</td>
+                </tr>
+        </table>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        Wanna change ur password?<a href="/change">Change</a>
+{% endblock %}
